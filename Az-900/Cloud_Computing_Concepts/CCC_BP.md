@@ -57,4 +57,4 @@ Answer: multiply the availability percentages,not average them
  - AKS full container orchestration
 
 # Key Benefits of Colud Computing
-- 
+- High availability,Scalability,Elasticity, Reliability, Predictability, Agility, Security, Governance, Global reach, Manageability
