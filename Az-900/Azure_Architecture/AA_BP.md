@@ -27,4 +27,21 @@
 6. RBAC roles and policies applied to the RG are inherited by the resources within
 
 # Subscriptions and Management Groups
-1. 
+1. Azure Subscription is primary boundary for billing, resource, deployment and access control
+- microsoft entra id tenant & Root environment ---> Root Management group ---> Multiple Management Groups ---> multiple subscriptions per management group ---> multiple RG per subscription -- multiple resources per RG.
+
+# Azure Resource Manager (ARM)
+1. ARM: The management layer in azure that provides a consistent way to deploy, manage, and organize azure resources
+- with ARM, you can implement below 
+1. deploy 100 environments as easily
+2. prevent configuration drift
+3. Enable true DevOps pratices
+- Mastering ARM and Infrastructure as code concepts helps stand out in the job market
+2. Benefits of ARM
+- Consistency - All tools and APIs use the same structure and commands through ARM
+- Idempotence - The same deployment can be run multiple times, and ARM only makes changes if something has actually changed.
+- RBAC - ARM allows RBAC to be applied at any scope management groups, subscription, REG or individual Resources
+- Tagging - ARM allows metadata tags to be applied to any resource during deployment ensuring consistency
+- Deployment Tracking - ARM maintains a complete history of every deployment.
+2. ARM Templates: A file that defines azure infrastructure in a structured format.
+3. Infrastructure of code(IoC): the practice of managing and provisioning infrastructure using code instead of manual clicking.
