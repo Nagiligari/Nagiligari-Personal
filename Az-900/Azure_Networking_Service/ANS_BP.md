@@ -48,3 +48,48 @@
 - A special subnet named "GatewaySubnet" must be created inside the VNet
 2. Azure Bastion:A service that lets users securely connect to the azure VMs using Remote desktop protocal(RDP) or Secure shell(SSH) directly through the Azure portal.
 - Azure bastion requires a dedicated subnet named exactly "AzureBastionSubnet" with a minimum size of /26
+
+# Load Balancing Services
+1. Azure load-balancing services help ensure applications are always available and always responsive.
+2. Load Balancing is  a process of distributing incoming network traffic across multiple servers or resources
+3. Load Balancer handles TCP/UDP(Layer 4) network traffic,both inbound and outbound
+    - Two Types
+        - Public load balancer: Accepts traffic from the internet and distrubutes it to the azure VMs
+        - Internal Load Balancer: Distributes traffic inside the virtual network
+4. Azure Load Balancer health Probes: Monitor the availability of backend resources, these probes periodically check a specific port or path on each resource
+5. Azure Application Gateways: Inspects HTTP and HTTPS content and make routing decisions based on URL paths,headers, cookies, and more
+    - Web Application Firewall (WAF): Adds protection against common web vulnerabilities like SQL injection and cross-site scripting
+7. Azure Traffic manager: DNS-based load balancer which uses DNS to direct users to the best endpoint based on performance, location, or availability.(For DNS-based global load balancing and disaster recovery)
+8. Azure Front Door: More advanced service that combines global HTTP/HTTPS load balancing, content distrubution network (CDN) feature, and TLS offloading.
+## Load Balancing Options in Azure
+1. Azure load balancer: For basic TCP/UDP traffic, internal or external; ideal for non-HTTP workloads
+2. Application Gateway: For web apps needing URL-based routing or Layer 7 inspections
+
+# Network and Application Security Groups: 
+1. NSG(network security groups) and ASG(Application security) help lock down traffic and enforce least privilege
+## NSG is a set rules that control inbound and outbound traffic to azure resources.
+- each rule in an NSG has a priority number
+- the lower the number, the higher the priority
+- rules are evaluated in order, from lowest to highest
+- once a match is found, that rule is applied and evalution stops.
+- by default, azure incldes built-in rules that allow internal traffic
+## where you can apply NSG
+- Attach an NSG to a subnet or to a NIC of a VM
+- if rules exist at both levels, Azure evaluates both 
+- the most restrictive rule win
+## there is also ASG lets you group VMs by application role,so things like web servers,database servers etc
+## NSGs operate at Layer 3 and 4, IP and trasport Layers of the OSI model
+## Azure Firewall is a centralized,stateful firewall that also includes Layer 7 filtering
+
+- For Az-900 exam,
+# NSG
+## Equals traffic control at Layer 3 and Layer 4
+## Uses rules with priority Numbers
+## denies inbound from the internet by default
+## can be applied at subnet or NIC level
+# ASG
+## Equals grouping VMs by application Role
+## Used in NSG rules for easier Management and scalability
+# Azure Firewall
+## Equals centralized Layer 3 to Layer 7 filtering
+## Used when users need full-feature security inspection and centralized management
